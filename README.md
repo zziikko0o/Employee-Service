@@ -1,27 +1,70 @@
-# EmployeeFrontendStarter
+# Starter für das LF10 Projekt
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.3.
+Erstellen Sie einen Fork dieses Projektes auf Github.
 
-## Development server
+## Requirements
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+* Docker https://docs.docker.com/get-docker/
+* Docker compose (bei Windows und Mac schon in Docker enthalten) https://docs.docker.com/compose/install/
 
-## Code scaffolding
+### Terminal öffnen
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+für alles gilt, im Terminal im Ordner docker sein
 
-## Build
+```bash
+cd docker
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Abhängigkeiten starten (Postgres, EmployeeBackend)
 
-## Running unit tests
+```bash
+docker compose up
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Achtung: Der Docker-Container läuft dauerhaft! Wenn er nicht mehr benötigt wird, sollten Sie ihn stoppen.
 
-## Running end-to-end tests
+### Abhängigkeiten stoppen
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+docker compose down
+```
 
-## Further help
+### Postgres Datenbank wipen, z.B. bei Problemen
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+docker compose down
+docker volume rm docker_employee_postgres_data
+docker compose up
+```
+
+## Swagger des Backends
+
+```
+http://localhost:8089/swagger
+```
+
+# Postgres
+
+```
+
+### Intellij-Ansicht für Postgres Datenbank einrichten (geht nicht in Webstorm!)
+
+```bash
+1. Lasse den Docker-Container mit den Abhängigkeiten laufen
+2. rechts im Fenster den Reiter Database öffnen
+3. In der Database-Symbolleiste auf das Datenbanksymbol mit dem Schlüssel klicken
+4. auf das Pluszeichen klicken
+5. Datasource from URL auswählen
+6. URL der DB einfügen (jdbc:postgresql://postgres-employee:5432/employee_db) und PostgreSQL-Treiber auswählen, mit OK bestätigen
+7. Username lf8_starter und Passwort secret eintragen (siehe application.properties), mit Apply bestätigen
+8. im Reiter Schemas alle Häkchen entfernen und lediglich vor lf8_starter_db und public Häkchen setzen
+9. mit Apply und ok bestätigen 
+```
+
+# Keycloak
+
+### Keycloak Token
+
+1. Auf der Projektebene [getBearerToken.http](./getBearerToken.http) öffnen.
+2. Neben der Request auf den grünen Pfeil drücken
+3. Aus dem Reponse das access_token kopieren
