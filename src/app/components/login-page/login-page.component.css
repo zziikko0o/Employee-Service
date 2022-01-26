@@ -1,0 +1,28 @@
+.center-div {
+  margin-top: calc(100vh/2 -  9em);
+}
+
+.rounded-border {
+  border-radius: 30px;
+  border: none !important;
+}
+
+.square {
+  width: 18em;
+  height: 18em;
+  margin-left: calc(50% - 9em);
+}
+
+.background {
+  top: 0;
+  position: absolute;
+  background-color: darkcyan;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+}
+
+.z-index {
+  z-index: 10;
+  position: relative;
+}
