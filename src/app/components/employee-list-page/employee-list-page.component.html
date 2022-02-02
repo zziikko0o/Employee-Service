@@ -1,1 +1,73 @@
-<p>employee-list-page works!</p>
+
+    <div class="background">
+
+    </div>
+
+    <div class="me-5 ms-5">
+        <button [routerLink]="['/employeeAdd']">Hinzufügen</button>
+        <table class="table table-dark table-hover text-info">
+          <caption class="text-black">List of employees</caption>
+          <thead class="">
+          <tr>
+            <th scope="col">
+              ID
+            </th>
+            <th scope="col">
+              Vorname
+            </th>
+            <th scope="col">
+              Nachname
+            </th>
+            <th scope="col">
+              Straße
+            </th>
+            <th scope="col">
+              Plz
+            </th>
+            <th scope="col">
+              Stadt
+            </th>
+            <th scope="col">
+              Telefon
+            </th>
+            <th scope="col">
+              Löschen
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr
+            *ngFor="let employee of employees"
+            [id]="employee.id"
+          >
+            <th scope="row">
+              {{employee.id}}
+            </th>
+            <td>
+              {{employee.firstName}}
+            </td>
+            <td>
+              {{employee.lastName}}
+            </td>
+            <td>
+              {{employee.street}}
+            </td>
+            <td>
+              {{employee.postcode}}
+            </td>
+            <td>
+              {{employee.city}}
+            </td>
+            <td>
+              {{employee.phone}}
+            </td>
+            <td>
+              <button>Löschen</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+    </div>
+
+
+

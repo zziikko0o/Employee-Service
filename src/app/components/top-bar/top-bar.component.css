@@ -1,0 +1,23 @@
+.logo {
+  color: white;
+}
+
+.topbar {
+  height: 5em;
+}
+
+.topbar-navigation {
+  font-size: 30px;
+}
+
+.topbar-link {
+  height: 100%;
+}
+
+.topbar-link:hover {
+  background-color: gray;
+}
+
+.topbar-text {
+  padding-top: 20%;
+}

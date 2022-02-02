@@ -10,6 +10,11 @@ import { EmployeeAddPageComponent } from './components/employee-add-page/employe
 import { QualificationPageComponent } from './components/qualification-page/qualification-page.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { AppRoutingModule } from './app-routing.module';
+import {FormsModule} from "@angular/forms";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from "@angular/material/icon";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {DataTablesModule} from "angular-datatables";
 
 @NgModule({
   declarations: [
@@ -24,7 +29,12 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    FontAwesomeModule,
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

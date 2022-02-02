@@ -7,5 +7,15 @@
       "^/backend": ""
     },
     "changeOrigin": true
+  },
+
+  "/token": {
+    "target": "http://keycloak.szut.dev/auth/realms/szut/protocol/openid-connect/token",
+    "secure": false,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/token": ""
+    },
+    "changeOrigin": true
   }
 }

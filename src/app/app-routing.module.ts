@@ -9,7 +9,7 @@ import {QualificationPageComponent} from "./components/qualification-page/qualif
 
 
 const routes: Routes = [
-  {path: 'employeeList', component: EmployeeListPageComponent},
+  {path: '', component: EmployeeListPageComponent},
   {path: 'employeeDetails', component: EmployeeDetailsPageComponent},
   {path: 'employeeAdd', component: EmployeeAddPageComponent},
   {path: 'qualification', component: QualificationPageComponent}
