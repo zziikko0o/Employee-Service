@@ -9,12 +9,12 @@
     "changeOrigin": true
   },
 
-  "/token": {
-    "target": "http://keycloak.szut.dev/auth/realms/szut/protocol/openid-connect/token",
+  "/qualifications": {
+    "target": "http://localhost:8089/qualifications",
     "secure": false,
     "logLevel": "debug",
     "pathRewrite": {
-      "^/token": ""
+      "^/qualifications": ""
     },
     "changeOrigin": true
   }

@@ -1,1 +1,67 @@
-<p>employee-add-page works!</p>
+
+
+<div class="me-5 ms-5 row">
+
+  <h1>Mitarbeiter hinzufügen</h1>
+  <div class="col-6">
+    <div class="input-group">
+      <span [(ngModel)]="employee.firstName" class="input-group-text">Vorname</span>
+      <input type="text" class="form-control">
+    </div>
+
+    <div class="input-group mt-2">
+      <span [(ngModel)]="employee.lastName" class="input-group-text">Nachname</span>
+      <input type="text" class="form-control">
+    </div>
+
+    <div class="input-group mt-2">
+      <span [(ngModel)]="employee.street" class="input-group-text">Straße</span>
+      <input type="text" class="form-control">
+    </div>
+
+    <div class="input-group mt-2">
+      <span [(ngModel)]="employee.postcode" class="input-group-text">PLZ</span>
+      <input type="text" class="form-control">
+    </div>
+
+    <div class="input-group mt-2">
+      <span [(ngModel)]="employee.city" class="input-group-text">Stadt</span>
+      <input type="text" class="form-control">
+    </div>
+
+    <div class="input-group mt-2">
+      <span [(ngModel)]="employee.phone" class="input-group-text">Telefon</span>
+      <input type="text" class="form-control">
+    </div>
+  </div>
+
+
+  <div class="col-6">
+    <div class="col-12">
+      <div class="input-group">
+        <input [(ngModel)]="qualification.designation" type="text" class="form-control">
+        <button (click)="addQualification()" class="btn btn-outline-info" type="button">New</button>
+      </div>
+    </div>
+
+    <div class="col-12 mt-2">
+      <div class="input-group">
+        <select>
+          <option *ngFor="let q of qualifications"> {{q.designation}}</option>
+        </select>
+        <button class="btn btn-outline-info" type="button">Add</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-12">
+    <button [routerLink]="['']" class="btn btn-info">Zurück</button>
+    <button class="btn btn-info">Hinzufügen</button>
+  </div>
+
+
+
+</div>
+
+
