@@ -1,1 +1,31 @@
-<p>qualification-page works!</p>
+
+  <div class="col-12">
+    <div class="input-group">
+      <input id="newQualification" [(ngModel)]="qualification.designation" type="text" class="form-control">
+      <button (click)="newQualification()" class="btn btn-outline-info" type="button">New</button>
+    </div>
+  </div>
+
+
+
+  <div class="col-12 mt-2" >
+    <table class="table table-dark table-hover text-info table-fixed" >
+      <thead>
+      <tr>
+        <th>
+          Qualifikationen
+        </th>
+        <th>
+
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let q of qualifications">
+        <td>{{q.designation}}</td>
+        <td><button (click)="deleteQualification(q)">Delete</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+

@@ -17,5 +17,15 @@
       "^/qualifications": ""
     },
     "changeOrigin": true
+  },
+
+  "/addQualification/*": {
+    "target": "http://localhost:8089/employees",
+    "secure": false,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/addQualification": ""
+    },
+    "changeOrigin": true
   }
 }
