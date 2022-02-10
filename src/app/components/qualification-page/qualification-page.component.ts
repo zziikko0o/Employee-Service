@@ -34,12 +34,10 @@ export class QualificationPageComponent implements OnInit {
   }
 
   async newQualification() {
-    console.log(this.qualification.designation);
     if(this.qualification.designation != '')
     {
       await this.qualificationService.create(this.qualification);
       this.qualificationService.getQualifications();
-      console.log(this.qualifications)
     }
     this.clearNewQualification();
   }
@@ -54,7 +52,6 @@ export class QualificationPageComponent implements OnInit {
   }
 
   refreshSearch() {
-    console.log(this.searchParameter)
     this.shownQualifications = this.qualifications.filter(q => q.designation.toLowerCase().includes(this.searchParameter.toLowerCase()));
   }
 

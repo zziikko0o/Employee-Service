@@ -18,10 +18,6 @@ export class LoginService {
   public async login(username: string, password: string): Promise<string> {
 
     const body = `grant_type=password&client_id=employee-management-service&username=${username}&password=${password}`
-
-    //console.log(body)
-
-
     const bearerToken =
       await this.httpClient.post<HttpResponse<any>>('http://authproxy.szut.dev',
         body, {
@@ -29,7 +25,6 @@ export class LoginService {
             .set('Content-Type', 'application/x-www-form-urlencoded')
         }
       ).toPromise().catch((err: HttpErrorResponse) => {
-        console.log(err);
         this.counter++;
 
         if(this.counter >= 3) {
@@ -48,10 +43,7 @@ export class LoginService {
     }
 
     // @ts-ignore
-    this.bearerTokenHolder.bearerToken = bearerToken.access_token
-
-    console.log(this.bearerTokenHolder.bearerToken);
-
+    this.bearerTokenHolder.bearerToken = bearerToken.access_token;
     this.dataService.hideLogin();
     return "true";
   }

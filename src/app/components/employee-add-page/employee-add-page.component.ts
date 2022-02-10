@@ -34,27 +34,20 @@ export class EmployeeAddPageComponent implements OnInit, AfterViewInit {
   }
 
   async newQualification() {
-    console.log(this.qualification.designation);
     if(this.qualification.designation != '')
     {
       await this.qualificationService.create(this.qualification);
       this.qualificationService.getQualifications();
-      console.log(this.qualifications)
     }
     this.clearNewQualification();
   }
 
   addQualification() {
-    console.log(this.selectedQualification)
-
     if(this.selectedQualification === undefined) return;
 
     if(!this.ownQualifications.includes(this.selectedQualification)) {
       this.ownQualifications.push(this.selectedQualification);
     }
-
-
-    console.log(this.ownQualifications);
   }
 
   removeQualification(designation: string) {

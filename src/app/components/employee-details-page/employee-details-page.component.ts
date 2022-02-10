@@ -46,12 +46,10 @@ export class EmployeeDetailsPageComponent implements OnInit {
   }
 
   async newQualification() {
-    console.log(this.qualification.designation);
     if(this.qualification.designation != '')
     {
       await this.qualificationService.create(this.qualification);
       this.qualificationService.getQualifications();
-      console.log(this.qualifications)
     }
     this.clearNewQualification();
   }
@@ -65,8 +63,6 @@ export class EmployeeDetailsPageComponent implements OnInit {
   }
 
   addQualification() {
-    console.log(this.selectedQualification)
-
     if (this.selectedQualification === undefined) return;
 
     if (!this.ownQualifications.includes(this.selectedQualification)) {
@@ -75,7 +71,7 @@ export class EmployeeDetailsPageComponent implements OnInit {
   }
 
   async updateEmployee() {
-    this.employeeService.updateEmployee(this.employee);
+    await this.employeeService.updateEmployee(this.employee);
 
     this.originalQualifications.forEach(q => {
       if(!this.ownQualifications.includes(q)) {

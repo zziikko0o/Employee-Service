@@ -22,7 +22,6 @@ export class AppComponent {
     this.fetchData();
     this.dataService.isLoggedIn.subscribe(s => {
       this.showLogin = s;
-      console.log("Login page is now " + s)
     });
   }
 
