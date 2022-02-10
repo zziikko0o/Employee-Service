@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {Employee} from "../../Models/employee";
 import {Qualification} from "../../Models/qualification";
 import {QualificationService} from "../../services/qualification.service";

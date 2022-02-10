@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
-import {Employee} from "../Models/employee";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {BearerTokenHolderService} from "./bearer-token-holder.service";
 import {Qualification} from "../Models/qualification";
-import {BehaviorSubject, catchError, Observable} from "rxjs";
-import {error} from "jquery";
+import {BehaviorSubject, Observable} from "rxjs";
 import {GetEmployeesByQualificationDto} from "../Models/getEmployeesByQualificationDto";
 import {EmployeeService} from "./employee.service";
 

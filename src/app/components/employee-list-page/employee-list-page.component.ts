@@ -1,13 +1,11 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {EmployeeService} from "../../services/employee.service";
-import {Observable, publish} from "rxjs";
 import {Employee} from "../../Models/employee";
 import {LoginService} from "../../services/login.service";
 import {DataManagementService} from "../../services/data-management.service";
 import {Qualification} from "../../Models/qualification";
-import {Q} from "@angular/cdk/keycodes";
 import {QualificationService} from "../../services/qualification.service";
-import {faTrash, faTrashAlt} from "@fortawesome/free-solid-svg-icons";
+import {faTrashAlt} from "@fortawesome/free-solid-svg-icons";
 
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {faAddressCard, faCoffee} from "@fortawesome/free-solid-svg-icons";
+import {faAddressCard} from "@fortawesome/free-solid-svg-icons";
 import {DataManagementService} from "../../services/data-management.service";
 
 @Component({

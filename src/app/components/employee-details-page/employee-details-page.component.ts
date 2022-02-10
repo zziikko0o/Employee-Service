@@ -1,7 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Employee} from "../../Models/employee";
 import {Qualification} from "../../Models/qualification";
-import {Q} from "@angular/cdk/keycodes";
 import {QualificationService} from "../../services/qualification.service";
 import {DataManagementService} from "../../services/data-management.service";
 import {EmployeeService} from "../../services/employee.service";

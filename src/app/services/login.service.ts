@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpErrorResponse, HttpHeaders, HttpParams, HttpResponse} from "@angular/common/http";
-import {fromFetch} from "rxjs/fetch";
-import {bufferTime, throttleTime, timeout} from "rxjs";
+import {HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse} from "@angular/common/http";
 import {BearerTokenHolderService} from "./bearer-token-holder.service";
-import {dashCaseToCamelCase} from "@angular/compiler/src/util";
 import {DataManagementService} from "./data-management.service";
 
 @Injectable({

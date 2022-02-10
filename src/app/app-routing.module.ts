@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {EmployeeListPageComponent} from "./components/employee-list-page/employee-list-page.component";
 import {EmployeeDetailsPageComponent} from "./components/employee-details-page/employee-details-page.component";

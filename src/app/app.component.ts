@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 import {Employee} from "./Models/employee";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable, of} from "rxjs";
-import {Data} from "@angular/router";
 import {DataManagementService} from "./services/data-management.service";
 
 @Component({

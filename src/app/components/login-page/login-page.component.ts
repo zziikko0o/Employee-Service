@@ -1,7 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {LoginService} from "../../services/login.service";
-import {Timestamp} from "rxjs";
-import {Time} from "@angular/common";
 
 @Component({
   selector: 'app-login-page',
