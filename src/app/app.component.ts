@@ -17,8 +17,8 @@ export class AppComponent {
   showLogin: boolean = true;
 
   constructor(private http: HttpClient, private dataService: DataManagementService) {
-    this.employees$ = of([]);
-    this.fetchData();
+    this.employees$ = of([]);// Initialise employees$ avec un observable contenant un tableau vide.
+    this.fetchData();//Appelle la méthode fetchData pour récupérer la liste des employés à partir du backend.
     this.dataService.isLoggedIn.subscribe(s => {
       this.showLogin = s;
     });

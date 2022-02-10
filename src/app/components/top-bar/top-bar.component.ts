@@ -12,6 +12,7 @@ export class TopBarComponent implements OnInit {
   faCoffee = faAddressCard;
 
   constructor(private dataService: DataManagementService) { }
+//Le constructeur du composant reçoit une instance du service
 
   ngOnInit(): void {
   }

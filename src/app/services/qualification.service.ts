@@ -28,6 +28,7 @@ export class QualificationService {
       }
       return 1;
     })));
+    //Les qualifications sont ensuite triées par désignation 
   }
 
   async create(qualification: Qualification) {
@@ -67,7 +68,11 @@ export class QualificationService {
         .set('Authorization', `Bearer ${this.bearerTokenHolder.bearerToken}`)
     }).toPromise();
   }
-
+/*
+Avant de supprimer une qualification, cette méthode obtient la liste des employés associés à cette qualification via la méthode getEmployeesByQualification.
+Ensuite, elle supprime la qualification des employés via le service EmployeeService.
+Enfin, la qualification est supprimée du backend via une requête HTTP DELETE.
+*/
   async getEmployeesByQualification(qualification: Qualification) {
     return await this.http.get<GetEmployeesByQualificationDto>('/qualifications/' + encodeURIComponent(qualification.designation) + '/employees', {
       headers: new HttpHeaders()
@@ -77,3 +82,13 @@ export class QualificationService {
   }
 
 }
+
+/*
+Le QualificationService est responsable de la gestion des qualifications dans l'application, notamment :
+
+Récupérer la liste des qualifications via l'API.
+Créer de nouvelles qualifications après avoir vérifié leur absence.
+Supprimer des qualifications, tout en supprimant d'abord la qualification des employés associés.
+Récupérer les employés associés à une qualification.
+Il utilise un BehaviorSubject pour maintenir un état local de la liste des qualifications et expose cette liste via un observable (qualifications$) afin que d'autres parties de l'application puissent y accéder.
+*/

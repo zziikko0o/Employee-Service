@@ -22,7 +22,7 @@ export class EmployeeListPageComponent implements OnInit, AfterViewInit {
   searchParameter: string = '';
 
   faTrashCan = faTrashAlt;
-
+//Le constructeur initialise les services nécessaires pour récupérer les données
   constructor(private employeeService: EmployeeService,
               private qualificationService: QualificationService,
               private loginService: LoginService,
@@ -60,6 +60,9 @@ export class EmployeeListPageComponent implements OnInit, AfterViewInit {
 
   async deleteEmployee(event: MouseEvent ,id: number) {
     event.stopPropagation();
+    /* empêche l'événement de clic de se propager, empêchant ainsi l'action
+     de déclencher d'autres événements */
+
     await this.employeeService.deleteEmployee(id);
     this.employeeService.getEmployees();
   }
@@ -72,11 +75,13 @@ export class EmployeeListPageComponent implements OnInit, AfterViewInit {
   showEmployeeDetails(id: number) {
     this.dataService.employeeId = id;
   }
+//Cette méthode permet de naviguer vers la page des détails d'un employé
 
   updateShownEmployees() {
     this.shownEmployees = [];
     this.employees.forEach(e => this.shownEmployees.push(e));
   }
+//Cette méthode copie tous les employés de employees dans shownEmployees
 
   async filterForQualification() {
     this.updateShownEmployees();
@@ -87,11 +92,15 @@ export class EmployeeListPageComponent implements OnInit, AfterViewInit {
     this.shownEmployees = this.employees.filter(e => ids.includes(e.id));
 
   }
+//Cette méthode permet de filtrer les employés en fonction de la qualification sélectionnée
 
   refreshSearch() {
     this.shownEmployees = this.employees.filter(e => this.includesSearchParameter(e))
   }
-
+/*
+Cette méthode permet de rechercher des employés en fonction du searchParameter.
+Elle filtre les employés dont les attributs (ID, prénom, nom, etc.) contiennent le terme de recherche.
+*/
   sortEmployees(element: string) {
 
     switch (element) {
@@ -150,7 +159,8 @@ export class EmployeeListPageComponent implements OnInit, AfterViewInit {
         break;
 
     }
-
+/*Cette méthode permet de trier les employés en fonction de la colonne sur laquelle 
+l'utilisateur clique (ID, prénom, nom, etc.). */
 
   }
 
@@ -164,7 +174,11 @@ export class EmployeeListPageComponent implements OnInit, AfterViewInit {
       e.lastName.toLowerCase().includes(this.searchParameter.toLowerCase());
 
   }
-
+/*
+Cette méthode vérifie si l'un des attributs d'un employé (ID, ville, téléphone, adresse, etc.) 
+contient le terme de recherche searchParameter.
+ Elle est utilisée dans refreshSearch() pour filtrer les employés.
+*/
 
 
 }

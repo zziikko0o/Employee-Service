@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {LoginService} from "../../services/login.service";
+/* OnInit : Interface utilisée pour exécuter du code lors de l'initialisation du composant.*/
 
 @Component({
   selector: 'app-login-page',
@@ -14,8 +15,11 @@ export class LoginPageComponent implements OnInit {
   public password: string = "";
 
   private timer: number = 0;
-
-  constructor(private loginService: LoginService) { }
+/* private timer : Une propriété privée utilisée pour gérer un verrouillage temporaire 
+après plusieurs tentatives infructueuses (en millisecondes, basé sur l'heure actuelle).*/
+  
+constructor(private loginService: LoginService) { }
+//Injection de dépendance : vérification des identifiants
 
   ngOnInit(): void {
   }
@@ -24,6 +28,7 @@ export class LoginPageComponent implements OnInit {
 
     if(this.timer <= Date.now()) {
       switch (await this.loginService.login(this.username, this.password)) {
+        //Appel du service loginService.login :
         case "true":
           this.clearData();
           break;
