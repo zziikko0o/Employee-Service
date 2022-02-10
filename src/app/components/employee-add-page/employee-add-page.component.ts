@@ -3,6 +3,7 @@ import {Employee} from "../../Models/employee";
 import {Qualification} from "../../Models/qualification";
 import {QualificationService} from "../../services/qualification.service";
 import {EmployeeService} from "../../services/employee.service";
+import {faTrashAlt} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-employee-add-page',
@@ -16,6 +17,8 @@ export class EmployeeAddPageComponent implements OnInit, AfterViewInit {
   qualifications: Qualification[];
   ownQualifications: Qualification[] = [];
   selectedQualification: Qualification;
+
+  faTrashCan = faTrashAlt;
 
   constructor(private qualificationService: QualificationService, private employeeService: EmployeeService) {
 
@@ -58,9 +61,16 @@ export class EmployeeAddPageComponent implements OnInit, AfterViewInit {
      this.ownQualifications =  this.ownQualifications.filter(q => q.designation != designation);
   }
 
-  addNewEmployee() {
-    this.employeeService.createEmployee(this.employee, this.ownQualifications);
-    this.clearNewEmployee();
+  async addNewEmployee() {
+
+    try {
+      await this.employeeService.createEmployee(this.employee, this.ownQualifications);
+      this.clearNewEmployee();
+      alert('Mitarbeiter gespeichert');
+    }
+    catch (e) {
+      alert('Bitte überprüfen ob sie alles richtig ausgefüllt haben oder der Mitarbeiter nicht schon existiert');
+    }
   }
 
   private clearNewQualification() {

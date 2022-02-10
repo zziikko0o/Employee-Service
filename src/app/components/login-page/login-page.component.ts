@@ -27,6 +27,7 @@ export class LoginPageComponent implements OnInit {
     if(this.timer <= Date.now()) {
       switch (await this.loginService.login(this.username, this.password)) {
         case "true":
+          this.clearData();
           break;
         case "false":
           break;
@@ -40,9 +41,11 @@ export class LoginPageComponent implements OnInit {
     } else {
       alert("Der Login ist noch gesperrt");
     }
+  }
 
-
-
+  clearData() {
+    this.username = '';
+    this.password = '';
   }
 
 }

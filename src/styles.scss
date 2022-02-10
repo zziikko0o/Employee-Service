@@ -24,10 +24,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background: #0dc1ff;
 }
 
+.login {
+  z-index: 900000;
+  position: absolute;
+}
+
 .background {
   top: 0;
-  //background-image: url("./backgroundimage.eps");
-  //background-size: 100%;
+  background-image: url("./backgroundimage.jpg");
+  background-size: cover;
+  box-shadow: none;
+  filter: blur(4px);
   position: absolute;
   background-color: #001030;
   width: 100vw;
@@ -62,3 +69,29 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     table-layout: fixed;
   }
 }
+
+.control-buttons{
+  width: 20em;
+  margin-left: calc(50% - 10em) ;
+  padding: 5px;
+  position: relative;
+}
+
+.center {
+  display: flex;
+}
+
+.item {
+  flex-grow: 4;
+}
+
+.stick-to-bottom {
+  position: fixed;
+  bottom: 3em;
+  left: 0;
+}
+
+table.table-sortable thead tr th {
+  cursor: pointer;
+}
+

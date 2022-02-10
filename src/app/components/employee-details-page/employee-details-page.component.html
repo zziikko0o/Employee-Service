@@ -2,83 +2,88 @@
 
 <div class="row">
 
-  <h1>Mitarbeiter hinzufügen</h1>
-  <div class="col-6">
-    <div class="input-group">
-      <span  class="input-group-text">Vorname</span>
-      <input [(ngModel)]="employee.firstName" type="text" class="form-control">
-    </div>
-
-    <div class="input-group mt-2">
-      <span  class="input-group-text">Nachname</span>
-      <input [(ngModel)]="employee.lastName" type="text" class="form-control">
-    </div>
-
-    <div class="input-group mt-2">
-      <span  class="input-group-text">Straße</span>
-      <input [(ngModel)]="employee.street" type="text" class="form-control">
-    </div>
-
-    <div class="input-group mt-2">
-      <span  class="input-group-text">PLZ</span>
-      <input [(ngModel)]="employee.postcode" type="text" class="form-control">
-    </div>
-
-    <div class="input-group mt-2">
-      <span  class="input-group-text">Stadt</span>
-      <input [(ngModel)]="employee.city" type="text" class="form-control">
-    </div>
-
-    <div class="input-group mt-2">
-      <span  class="input-group-text">Telefon</span>
-      <input [(ngModel)]="employee.phone" type="text" class="form-control">
-    </div>
-  </div>
-
-
-  <div class="col-6">
-    <div class="col-12">
+  <h1>Mitarbeiter details</h1>
+    <div class="col-6">
       <div class="input-group">
-        <input id="newQualification" [(ngModel)]="qualification.designation" type="text" class="form-control">
-        <button (click)="newQualification()" class="btn btn-outline-info" type="button">New</button>
+        <span  class="input-group-text">Vorname</span>
+        <input [(ngModel)]="employee.firstName" type="text" class="form-control">
+      </div>
+
+      <div class="input-group mt-2">
+        <span  class="input-group-text">Nachname</span>
+        <input [(ngModel)]="employee.lastName" type="text" class="form-control">
+      </div>
+
+      <div class="input-group mt-2">
+        <span  class="input-group-text">Straße</span>
+        <input [(ngModel)]="employee.street" type="text" class="form-control">
+      </div>
+
+      <div class="input-group mt-2">
+        <span  class="input-group-text">PLZ</span>
+        <input [(ngModel)]="employee.postcode" type="text" class="form-control">
+      </div>
+
+      <div class="input-group mt-2">
+        <span  class="input-group-text">Stadt</span>
+        <input [(ngModel)]="employee.city" type="text" class="form-control">
+      </div>
+
+      <div class="input-group mt-2">
+        <span  class="input-group-text">Telefon</span>
+        <input [(ngModel)]="employee.phone" type="text" class="form-control">
       </div>
     </div>
 
-    <div class="col-12 mt-2">
-      <div class="input-group">
-        <select [(ngModel)]="selectedQualification">
-          <option *ngFor="let q of qualifications" [ngValue]="q"> {{q.designation}}</option>
-        </select>
-        <button (click)="addQualification()" class="btn btn-outline-info" type="button">Add</button>
+
+    <div class="col-6">
+      <div class="col-12">
+        <div class="input-group">
+          <input placeholder="New Qualification..." id="newQualification" [(ngModel)]="qualification.designation" type="text" class="form-control">
+          <button (click)="newQualification()" class="btn btn-info" type="button">New</button>
+        </div>
       </div>
-    </div>
 
-    <div class="col-12 mt-2" >
-      <table class="table table-dark table-hover text-info table-fixed-sm" >
-        <thead>
-        <tr>
-          <th>
-            Qualifikationen
-          </th>
-          <th>
+      <div class="col-12 mt-2">
+        <div class="input-group">
+          <select [(ngModel)]="selectedQualification">
+            <option *ngFor="let q of qualifications" [ngValue]="q"> {{q.designation}}</option>
+          </select>
+          <button (click)="addQualification()" class="btn btn-info" type="button">Add</button>
+        </div>
+      </div>
 
-          </th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let q of ownQualifications">
-          <td>{{q.designation}}</td>
-          <td><button (click)="removeQualification(q)">Remove</button></td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-
+      <div class="col-12 mt-2" >
+        <table class="table table-light table-hover table-bordered text-black table-striped table-fixed-sm" >
+          <thead>
+          <tr>
+            <th>
+              Qualifikationen
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let q of ownQualifications">
+            <td style="width: 95%;">{{q.designation}}</td>
+            <td class="text-center">
+              <a>
+                <fa-icon style="cursor: pointer" [icon]="faTrashCan" (click)="removeQualification(q)"></fa-icon>
+              </a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
   </div>
 
-  <div class="col-12">
-    <button [routerLink]="['']" class="btn btn-info">Zurück</button>
-    <button class="btn btn-info"  (click)="updateEmployee()">Speichern</button>
+
+  <div class="col-12 stick-to-bottom">
+    <div class="control-buttons">
+      <div class="center">
+        <button [routerLink]="['']" class="btn btn-info m-1 item">Zurück</button>
+        <button class="btn btn-info m-1 item"  (click)="updateEmployee()">Speichern</button>
+      </div>
+    </div>
   </div>
 
 

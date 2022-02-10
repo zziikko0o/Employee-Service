@@ -1,5 +1,6 @@
 .center-div {
-  margin-top: calc(100vh/2 -  9em);
+  margin-top: calc(100vh/2 -  10em);
+  margin-left: calc(100vw/2 - 15.5em);
 }
 
 .rounded-border {
@@ -8,9 +9,8 @@
 }
 
 .square {
-  width: 18em;
-  height: 18em;
-  margin-left: calc(50% - 9em);
+  width: 20em;
+  height: 20em;
 }
 
 

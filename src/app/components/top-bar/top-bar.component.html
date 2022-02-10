@@ -3,18 +3,22 @@
     <a class=" link-info">
       <fa-icon [icon]="faCoffee" size="4x"></fa-icon>
     </a>
+    <button (click)="signOut()" class="topbar-button btn btn-danger ms-2">Abmelden</button>
   </div>
-  <div class="p-2 align-self-center topbar-link">
-      <label class="link-info topbar-text" [routerLink]="['']" >
+
+  <div id="employee_list" (click)="changePage('employee_list')" [routerLink]="['']" class="p-2 align-self-center topbar-link nav-selected me-1">
+      <label class="link-info topbar-text" >
         Mitarbeiterliste
       </label>
 
   </div>
-  <div class="p-2 align-self-center topbar-link">
+  <div id="qualifications" (click)="changePage('qualifications')" [routerLink]="['qualification']" class="p-2 align-self-center topbar-link me-2">
 
-      <label class="link-info topbar-text" [routerLink]="['qualification']" >
+      <label class="link-info topbar-text"  >
         Qualifikationen
       </label>
 
   </div>
+
+
 </div>

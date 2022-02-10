@@ -14,33 +14,33 @@
       </div>
 
       <div class="table-responsive mt-2">
-        <table class="table table-dark table-hover text-info">
+        <table class="table table-light table-hover table-bordered text-black table-striped table-sortable">
 
           <thead class="">
           <tr>
-            <th scope="col">
+            <th (click)="sortEmployees('id')" scope="col">
               ID
             </th>
-            <th scope="col">
+            <th (click)="sortEmployees('firstname')" scope="col">
               Vorname
             </th>
-            <th scope="col">
+            <th (click)="sortEmployees('lastname')"  scope="col">
               Nachname
             </th>
-            <th scope="col">
+            <th (click)="sortEmployees('street')"  scope="col">
               Straße
             </th>
-            <th scope="col">
+            <th (click)="sortEmployees('postcode')"  scope="col">
               Plz
             </th>
-            <th scope="col">
+            <th (click)="sortEmployees('city')"  scope="col">
               Stadt
             </th>
-            <th scope="col">
+            <th (click)="sortEmployees('phone')"  scope="col">
               Telefon
             </th>
             <th scope="col">
-              Löschen
+
             </th>
           </tr>
           </thead>
@@ -73,8 +73,10 @@
             <td>
               {{employee.phone}}
             </td>
-            <td>
-              <button (click)="deleteEmployee(employee.id)">Löschen</button>
+            <td class="text-center">
+              <a>
+                <fa-icon style="cursor: pointer" [icon]="faTrashCan" (click)="deleteEmployee($event, employee.id)"></fa-icon>
+              </a>
             </td>
           </tr>
           </tbody>

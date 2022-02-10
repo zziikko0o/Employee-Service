@@ -11,7 +11,13 @@
 }
 
 .topbar-link {
-  height: 100%;
+  height: 60%;
+  border-radius: 10px;
+}
+
+.topbar-button {
+  position: absolute;
+  margin-top: 0.55em;
 }
 
 .topbar-link:hover {
@@ -19,5 +25,13 @@
 }
 
 .topbar-text {
-  padding-top: 20%;
+  padding-top: 5%;
+}
+
+.nav-selected {
+  background-color: #2D5561;
+}
+
+.nav-selected :first-child{
+  color: white;
 }

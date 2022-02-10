@@ -5,6 +5,7 @@ import {Q} from "@angular/cdk/keycodes";
 import {QualificationService} from "../../services/qualification.service";
 import {DataManagementService} from "../../services/data-management.service";
 import {EmployeeService} from "../../services/employee.service";
+import {faTrashAlt} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-employee-details-page',
@@ -22,6 +23,8 @@ export class EmployeeDetailsPageComponent implements OnInit {
   addedQualifications: Qualification[] = [];
 
   employee: Employee = new Employee();
+
+  faTrashCan = faTrashAlt;
 
 
   constructor(

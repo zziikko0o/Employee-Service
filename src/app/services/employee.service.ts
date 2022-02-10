@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
 import {Employee} from "../Models/employee";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {BearerTokenHolderService} from "./bearer-token-holder.service";
 import {Qualification} from "../Models/qualification";
 import {GetEmployeeQualificationDto} from "../Models/getEmployeeQualificationDto";
@@ -32,11 +32,14 @@ export class EmployeeService {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
         .set('Authorization', `Bearer ${this.bearerTokenHolder.bearerToken}`)
-    }).toPromise();
+    }).toPromise().catch((err: HttpErrorResponse) => {
+      throw err;
+    });
 
     for (const q of qualifications) {
      await this.addEmployeeQualification(e.id, q);
     }
+
   }
 
   async addEmployeeQualification(eId: number, qualification: Qualification) {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {QualificationService} from "../../services/qualification.service";
 import {Qualification} from "../../Models/qualification";
+import {faTrashAlt} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-qualification-page',
@@ -10,13 +11,21 @@ import {Qualification} from "../../Models/qualification";
 export class QualificationPageComponent implements OnInit {
   qualification: Qualification = new Qualification();
   qualifications: Qualification[] = [];
+  shownQualifications: Qualification[] = [];
+
+  searchParameter: string = '';
+
+  faTrashCan = faTrashAlt;
 
 
   constructor(private qualificationService: QualificationService) { }
 
   ngOnInit(): void {
     this.qualificationService.getQualifications();
-    this.qualificationService.qualifications$.subscribe(qualifications => this.qualifications = qualifications);
+    this.qualificationService.qualifications$.subscribe(qualifications => {
+      this.qualifications = qualifications;
+      this.updateShownQualifications();
+    });
   }
 
   async deleteQualification(qualification: Qualification) {
@@ -37,6 +46,16 @@ export class QualificationPageComponent implements OnInit {
 
   private clearNewQualification() {
     this.qualification.designation = '';
+  }
+
+  updateShownQualifications() {
+    this.shownQualifications = [];
+    this.qualifications.forEach(q => this.shownQualifications.push(q));
+  }
+
+  refreshSearch() {
+    console.log(this.searchParameter)
+    this.shownQualifications = this.qualifications.filter(q => q.designation.toLowerCase().includes(this.searchParameter.toLowerCase()));
   }
 
 }

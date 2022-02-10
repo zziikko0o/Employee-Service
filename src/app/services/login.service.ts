@@ -4,6 +4,7 @@ import {fromFetch} from "rxjs/fetch";
 import {bufferTime, throttleTime, timeout} from "rxjs";
 import {BearerTokenHolderService} from "./bearer-token-holder.service";
 import {dashCaseToCamelCase} from "@angular/compiler/src/util";
+import {DataManagementService} from "./data-management.service";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class LoginService {
 
   private counter: number = 0;
 
-  constructor(private httpClient: HttpClient, private bearerTokenHolder: BearerTokenHolderService) { }
+  constructor(private httpClient: HttpClient, private bearerTokenHolder: BearerTokenHolderService, private dataService: DataManagementService) { }
 
   public async login(username: string, password: string): Promise<string> {
 
@@ -51,6 +52,7 @@ export class LoginService {
 
     console.log(this.bearerTokenHolder.bearerToken);
 
+    this.dataService.hideLogin();
     return "true";
   }
 }
